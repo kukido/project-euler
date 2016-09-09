@@ -60,10 +60,10 @@ def permutate(seq: Seq[Int]): Option[Seq[Int]] = {
 }
 
 @tailrec
-def loop(s: Seq[Int], l: Int): Unit = {
+def permutation(s: Seq[Int], l: Int): Unit = {
   val pm = permutate(s)
   pm match {
-    case Some(p) if l > 1 => loop(p, l - 1)
+    case Some(p) if l > 1 => permutation(p, l - 1)
     case _ => println(s.mkString)
   }
 }
@@ -71,4 +71,4 @@ def loop(s: Seq[Int], l: Int): Unit = {
 val seq = Seq(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 val l = 1000000
 
-loop(seq, l)
+permutation(seq, l)
